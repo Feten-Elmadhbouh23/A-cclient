@@ -1,0 +1,77 @@
+/* Conteneur principal */
+div {
+  margin: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: Arial, sans-serif;
+}
+
+/* Titre du formulaire */
+h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #2c3e50;
+}
+
+/* Formulaire */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Étiquettes */
+label {
+  font-size: 1.1em;
+  color: #34495e;
+  margin-bottom: 5px;
+}
+
+/* Champs de saisie */
+input[type="text"] {
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+  border-color: #3498db;
+}
+
+/* Bouton de soumission */
+button {
+  padding: 10px 20px;
+  font-size: 1.1em;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: #3498db;
+  color: white;
+  transition: background-color 0.3s ease;
+  align-self: center;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Message d'erreur pour validation (si nécessaire) */
+div.error-message {
+  color: #e74c3c;
+  font-size: 1em;
+  text-align: center;
+  margin-top: 10px;
+}

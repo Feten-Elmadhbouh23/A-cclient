@@ -1,1 +1,64 @@
-<p>add-apartment works!</p>
+<h2>Ajouter un nouvel appartement</h2>
+<form [formGroup]="apartForm" (ngSubmit)="saveApartment()">
+  <div>
+    <label>Numéro d'Appartement :</label>
+    <input type="text" formControlName="apartNum">
+    <div *ngIf="apartForm.get('apartNum')?.invalid && apartForm.get('apartNum')?.touched">
+      <small *ngIf="apartForm.get('apartNum')?.hasError('required')">Ce champ est obligatoire.</small>
+      <small *ngIf="apartForm.get('apartNum')?.hasError('pattern')">Doit être un nombre.</small>
+    </div>
+  </div>
+
+  <div>
+    <label>Étage :</label>
+    <input type="text" formControlName="floorNum">
+    <div *ngIf="apartForm.get('floorNum')?.invalid && apartForm.get('floorNum')?.touched">
+      <small *ngIf="apartForm.get('floorNum')?.hasError('required')">Ce champ est obligatoire.</small>
+      <small *ngIf="apartForm.get('floorNum')?.hasError('pattern')">Doit être un nombre.</small>
+    </div>
+  </div>
+
+  <div>
+    <label>Surface :</label>
+    <input type="number" formControlName="surface">
+    <div *ngIf="apartForm.get('surface')?.invalid && apartForm.get('surface')?.touched">
+      <small *ngIf="apartForm.get('surface')?.hasError('required')">Ce champ est obligatoire.</small>
+      <small *ngIf="apartForm.get('surface')?.hasError('min')">Minimum 10 m².</small>
+    </div>
+  </div>
+
+  <div>
+    <label>Terrasse :</label>
+    <label><input type="radio" formControlName="terrace" [value]="true"> Oui</label>
+    <label><input type="radio" formControlName="terrace" [value]="false"> Non</label>
+  </div>
+
+  <div>
+    <label>Surface Terrasse :</label>
+    <input type="number" formControlName="surfaceterrace">
+    <div *ngIf="apartForm.get('surfaceterrace')?.invalid && apartForm.get('surfaceterrace')?.touched">
+      <small *ngIf="apartForm.get('surfaceterrace')?.hasError('min')">Minimum 5 m².</small>
+    </div>
+  </div>
+
+  <div>
+    <label>Catégorie :</label><br>
+    <label><input type="radio" formControlName="category" value="S+1"> S+1</label>
+    <label><input type="radio" formControlName="category" value="S+2"> S+2</label>
+    <label><input type="radio" formControlName="category" value="S+3"> S+3</label>
+    <div *ngIf="apartForm.get('category')?.invalid && apartForm.get('category')?.touched">
+      <small>Ce champ est obligatoire.</small>
+    </div>
+  </div>
+
+  <div>
+    <label>ID Résidence :</label>
+    <input type="number" formControlName="ResidenceId">
+    <div *ngIf="apartForm.get('ResidenceId')?.invalid && apartForm.get('ResidenceId')?.touched">
+      <small>Ce champ est obligatoire.</small>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="apartForm.invalid">Ajouter</button>
+  <button type="reset" (click)="apartForm.reset()">Réinitialiser</button>
+</form>

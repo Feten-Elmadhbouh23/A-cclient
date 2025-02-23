@@ -1,0 +1,20 @@
+<div *ngIf="residence">
+  <h2>{{ residence.name }}</h2>
+  <p><strong>Adresse:</strong> {{ residence.address }}</p>
+  <p><strong>Status:</strong> {{ residence.status }}</p>
+  <img [src]="residence.image" alt="{{ residence.name }}" width="300" height="200">
+
+
+  <button (click)="nextResidence()">Next</button>
+
+
+  <button (click)="addResidence()">Add Residence</button>
+
+
+  <button (click)="updateResidence()">Update Residence</button>
+</div>
+
+
+<div *ngIf="!residence">
+  <p>La résidence n'a pas été trouvée.</p>
+</div>

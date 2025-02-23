@@ -1,0 +1,58 @@
+{
+  "residences": [
+    {
+      "id": 1,
+      "name": "Résidence A",
+      "address": "Adresse 1",
+      "status": "Disponible",
+      "image": "url-de-l-image",
+      "apartments": [101, 102]
+    },
+    {
+      "id": 2,
+      "name": "Résidence B",
+      "address": "Adresse 2",
+      "status": "En Construction",
+      "image": "url-de-l-image",
+      "apartments": [201, 202]
+    }
+  ],
+  "apartments": [
+    {
+      "apartNum": 101,
+      "floorNum": 1,
+      "surface": 60,
+      "terrace": true,
+      "surfaceterrace": 10,
+      "category": "T2",
+      "ResidenceId": 1
+    },
+    {
+      "apartNum": 102,
+      "floorNum": 1,
+      "surface": 75,
+      "terrace": false,
+      "surfaceterrace": 0,
+      "category": "T3",
+      "ResidenceId": 1
+    },
+    {
+      "apartNum": 201,
+      "floorNum": 2,
+      "surface": 55,
+      "terrace": true,
+      "surfaceterrace": 5,
+      "category": "T1",
+      "ResidenceId": 2
+    },
+    {
+      "apartNum": 202,
+      "floorNum": 2,
+      "surface": 80,
+      "terrace": false,
+      "surfaceterrace": 0,
+      "category": "T3",
+      "ResidenceId": 2
+    }
+  ]
+}

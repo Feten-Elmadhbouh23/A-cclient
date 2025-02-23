@@ -1,1 +1,32 @@
-<p>add-residence works!</p>
+<div class="form-container">
+  <h2>Ajouter une Résidence</h2>
+  <form [formGroup]="residenceForm" (ngSubmit)="addResidence()">
+    <label>Nom :</label>
+    <input type="text" formControlName="name">
+    <div *ngIf="residenceForm.get('name')?.invalid && residenceForm.get('name')?.touched">
+      <small *ngIf="residenceForm.get('name')?.hasError('required')">Le nom est requis.</small>
+      <small *ngIf="residenceForm.get('name')?.hasError('minlength')">Au moins 3 caractères.</small>
+    </div>
+
+    <label>Adresse :</label>
+    <input type="text" formControlName="address">
+    <div *ngIf="residenceForm.get('address')?.invalid && residenceForm.get('address')?.touched">
+      <small>Adresse requise.</small>
+    </div>
+
+    <label>Image (URL) :</label>
+    <input type="text" formControlName="image">
+    <div *ngIf="residenceForm.get('image')?.invalid && residenceForm.get('image')?.touched">
+      <small>URL d'image invalide (png, jpg, jpeg).</small>
+    </div>
+
+    <label>Statut :</label>
+    <select formControlName="status">
+      <option value="Disponible">Disponible</option>
+      <option value="En Construction">En Construction</option>
+      <option value="Vendu">Vendu</option>
+    </select>
+
+    <button type="submit" [disabled]="residenceForm.invalid">Ajouter</button>
+  </form>
+</div>

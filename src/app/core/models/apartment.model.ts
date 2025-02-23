@@ -1,4 +1,5 @@
 export class Apartment {
+[x: string]: any;
   apartNum!: number;
   floorNum!: number;
   surface!: number;

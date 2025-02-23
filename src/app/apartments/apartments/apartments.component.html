@@ -1,1 +1,18 @@
-<p>apartments works!</p>
+<div class="apartments-container">
+  <h2>Liste des Appartements</h2>
+  <button routerLink="/add-apartment" class="btn">Ajouter un Appartement</button>
+
+  <div class="apartments-list">
+    <div *ngFor="let apartment of apartments; let i = index" class="apartment-card">
+      <p><strong>Numéro :</strong> {{ apartment.apartNum }}</p>
+      <p><strong>Étage :</strong> {{ apartment.floorNum }}</p>
+      <p><strong>Surface :</strong> {{ apartment.surface }} m²</p>
+      <p><strong>Terrasse :</strong> {{ apartment.terrace ? 'Oui' : 'Non' }}</p>
+      <p *ngIf="apartment.terrace"><strong>Surface Terrasse :</strong> {{ apartment.surfaceterrace }} m²</p>
+      <p><strong>Catégorie :</strong> {{ apartment.category }}</p>
+      <p><strong>Résidence ID :</strong> {{ apartment.ResidenceId }}</p>
+
+      <button (click)="deleteApartment(i)" class="btn btn-danger">Supprimer</button>
+    </div>
+  </div>
+</div>

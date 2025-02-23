@@ -3,14 +3,12 @@
 
   <!-- Barre de recherche -->
   <div class="search-bar">
-  <!-- residences.component.html -->
-<div>
-  <input type="text" [(ngModel)]="searchText" placeholder="Rechercher une résidence..." />
-</div>
+    <input type="text" [(ngModel)]="searchText" placeholder="Rechercher une résidence..." />
   </div>
+  <button routerLink="/add-residence" class="btn btn-add">Ajouter une Résidence</button>
   <!-- Liste des résidences -->
   <div class="residences-list">
-    <div *ngFor="let item of listResidences | filter : searchText" class="residence-card">
+    <div *ngFor="let item of listResidences | filter: searchText" class="residence-card">
       <img [src]="item.image" [alt]="item.name" class="residence-image" />
       <div class="residence-details">
         <h3>{{ item.name }}</h3>
@@ -19,10 +17,10 @@
         <button (click)="showLocation(item)">Voir l'adresse</button>
         <button (click)="addToFavorites(item)">Ajouter aux favoris</button>
         <button (click)="viewDetails(item.id)">Détails</button>
+        <button [routerLink]="['/residences', item.id, 'apartments']">Appartements list</button>
       </div>
     </div>
   </div>
-
 
   <h2>Résidences Favorites</h2>
   <div class="favorites-list">

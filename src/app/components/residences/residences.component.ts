@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Residence } from 'src/app/core/models/residence';
-
+import { Component, OnInit } from '@angular/core';
+import { CommonService } from 'src/app/core/Services/common.service';
 
 @Component({
   selector: 'app-residences',
@@ -17,27 +17,29 @@ export class ResidencesComponent {
     { id: 4, name: "El Anber", address: "inconnu", image: "./assets/bj1.jfif", status: "En Construction" }
   ];
 
-  showLocation(residence: Residence) {
-    if (residence.address === "inconnu") {
-      alert("L'adresse de cette résidence est inconnue");
-    } else {
-      alert(`Adresse : ${residence.address}`);
-    }
-  }
-
   favoriteResidences: Residence[] = [];
 
-  addToFavorites(residence: Residence) {
+  constructor(private router: Router , private commonService: CommonService) {}
+
+  showLocation(residence: Residence): void {
+    alert(residence.address === "inconnu" ? "L'adresse de cette résidence est inconnue" : `Adresse : ${residence.address}`);
+  }
+
+  addToFavorites(residence: Residence): void {
     if (!this.favoriteResidences.includes(residence)) {
       this.favoriteResidences.push(residence);
     }
   }
-  constructor(private router: Router) {}
 
-  viewDetails(id: string): void {
+  viewDetails(id: number): void {
     this.router.navigate(['/residence-details', id]);
   }
+  countSameAddress!: number;
 
 
+
+  ngOnInit(): void {
+    this.countSameAddress = this.commonService.getSameValueOf(this.listResidences, 'address', 'Adresse 1');
+    console.log('Nombre de résidences avec la même adresse :', this.countSameAddress);
+  }
 }
-

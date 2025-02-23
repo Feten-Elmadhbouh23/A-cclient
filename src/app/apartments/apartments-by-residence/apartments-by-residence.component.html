@@ -1,1 +1,14 @@
-<p>apartments-by-residence works!</p>
+<h2>Liste des Appartements</h2>
+<ul *ngIf="apartments.length > 0; else noApartments">
+  <li *ngFor="let apt of apartments">
+    Appartement N° {{ apt.apartNum }} - Étage : {{ apt.floorNum }} - Surface : {{ apt.surface }}m²
+    <span *ngIf="apt.terrace"> | Terrasse : {{ apt.surfaceterrace }}m²</span> | Catégorie : {{ apt.category }}
+  </li>
+</ul>
+
+<ng-template #noApartments>
+  <p>Aucun appartement trouvé pour cette résidence.</p>
+</ng-template>
+
+<!-- Bouton pour ajouter un nouvel appartement -->
+<button (click)="navigateToAddApartment()">Ajouter un appartement</button>
